@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "badge_text": "Now Shipping Worldwide",
+        "headline_line1": "Your Gateway to",
+        "subheadline": "Discover premium smart products and services that simplify task management, boost productivity, and bring comfort to every corner of your world — designed for people who demand more from life.",
+        "cta_primary_text": "Explore Products",
+        "cta_secondary_text": "Our Services"
+      }
+    },
+    "trust_strip": {
+      "type": "trust-strip",
+      "settings": {}
+    },
+    "features": {
+      "type": "features",
+      "settings": {
+        "badge": "How It Works",
+        "heading": "Built for",
+        "heading_accent": "Every Lifestyle",
+        "subheading": "Our smart ecosystem adapts to how you work and live — bringing seamless automation, intelligent insights, and effortless control to your fingertips."
+      }
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "badge": "Top Picks",
+        "heading": "Smart Products,",
+        "heading_accent": "Real Results",
+        "subheading": "Handpicked innovations that solve real problems — from home automation to professional-grade productivity tools that customers across 190 countries trust daily.",
+        "cta_text": "View All Products"
+      }
+    },
+    "global": {
+      "type": "global-reach",
+      "settings": {
+        "badge": "Global Presence",
+        "heading": "Connecting Customers",
+        "heading_accent": "Across Every Continent",
+        "body": "From Tokyo apartments to Lagos offices, from Berlin studios to São Paulo homes — SmartSphere products reach every corner of the globe, backed by localised support in 40+ languages."
+      }
+    },
+    "services": {
+      "type": "services",
+      "settings": {
+        "badge": "What We Offer",
+        "heading": "Services Designed for",
+        "heading_accent": "Your Success",
+        "subheading": "Beyond products — we provide an ecosystem of services to help you set up, integrate, scale, and get the most from every smart device you own."
+      }
+    },
+    "task_showcase": {
+      "type": "task-showcase",
+      "settings": {
+        "badge": "Task Intelligence",
+        "heading": "Stop Managing Tasks.",
+        "heading_accent": "Let Tasks Manage Themselves.",
+        "body": "SmartSphere products integrate with your workflow to auto-schedule, auto-prioritise, and auto-complete routine tasks — freeing your time for what actually matters."
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "badge": "Customer Stories",
+        "heading": "Loved by People",
+        "heading_accent": "Everywhere",
+        "subheading": "Real stories from real customers across 190 countries — discover how SmartSphere products are transforming daily life from Tokyo to Toronto."
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "badge": "Stay in the Loop",
+        "heading": "Smart Deals, Delivered",
+        "heading_accent": "to Your Inbox",
+        "subheading": "Get exclusive early access to new products, members-only discounts, productivity tips from our experts, and monthly smart living guides — no spam, ever.",
+        "button_text": "Subscribe Free"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust_strip",
+    "features",
+    "products",
+    "global",
+    "services",
+    "task_showcase",
+    "testimonials",
+    "newsletter"
+  ]
+}

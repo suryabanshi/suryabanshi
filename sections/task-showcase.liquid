@@ -1,0 +1,116 @@
+<!-- ══ TASK MANAGEMENT SHOWCASE ═══════════════════════════════════════ -->
+<section class="task-section" id="task-management" aria-labelledby="task-heading">
+  <div class="container">
+    <div class="task-content">
+
+      <!-- Left: copy -->
+      <div>
+        <div class="badge reveal">✅ {{ section.settings.badge | default: 'Task Intelligence' }}</div>
+        <h2 id="task-heading" class="reveal" style="font-size:clamp(1.75rem,4vw,3rem);font-weight:800;line-height:1.2;margin-top:1rem;margin-bottom:1rem;">
+          {{ section.settings.heading | default: 'Stop Managing Tasks.' }}<br>
+          <span class="gradient-text">{{ section.settings.heading_accent | default: 'Let Tasks Manage Themselves.' }}</span>
+        </h2>
+        <p class="reveal" style="color:var(--text-muted);font-size:1.05rem;line-height:1.75;max-width:44ch;">
+          {{ section.settings.body | default: 'SmartSphere products integrate with your workflow to auto-schedule, auto-prioritise, and auto-complete routine tasks — freeing your time for what actually matters.' }}
+        </p>
+
+        <div class="task-list reveal">
+          <div class="task-item">
+            <div class="task-check done" aria-label="Completed"></div>
+            <div class="task-body">
+              <div class="task-name done">Configure smart lighting scenes</div>
+              <div class="task-sub">Completed by SmartHub AI • 07:32 AM</div>
+            </div>
+            <span class="task-priority priority-low">Done</span>
+          </div>
+          <div class="task-item">
+            <div class="task-check done" aria-label="Completed"></div>
+            <div class="task-body">
+              <div class="task-name done">Morning energy report delivered</div>
+              <div class="task-sub">Auto-generated • Sent to your phone</div>
+            </div>
+            <span class="task-priority priority-low">Done</span>
+          </div>
+          <div class="task-item">
+            <div class="task-check pending" aria-label="In progress"></div>
+            <div class="task-body">
+              <div class="task-name">Review team productivity dashboard</div>
+              <div class="task-sub">Scheduled for 11:00 AM</div>
+            </div>
+            <span class="task-priority priority-med">Medium</span>
+          </div>
+          <div class="task-item">
+            <div class="task-check pending" aria-label="In progress"></div>
+            <div class="task-body">
+              <div class="task-name">Restock SmartHub filters (auto-order)</div>
+              <div class="task-sub">Triggered by usage sensor</div>
+            </div>
+            <span class="task-priority priority-high">High</span>
+          </div>
+          <div class="task-item">
+            <div class="task-check pending" aria-label="Pending"></div>
+            <div class="task-body">
+              <div class="task-name">Weekly wellness check-in</div>
+              <div class="task-sub">PulseIQ data ready for review</div>
+            </div>
+            <span class="task-priority priority-low">Low</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: feature highlights -->
+      <div class="reveal">
+        <div style="display:grid;gap:1.25rem;">
+
+          <div class="feature-card" style="padding:1.5rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;">
+              <div class="feature-icon icon-cyan" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;">⚡</div>
+              <div>
+                <h3 style="font-size:1rem;margin:0;">Instant Automation</h3>
+                <p style="font-size:.8rem;color:var(--text-muted);margin:0;">Set it once, forget it forever</p>
+              </div>
+            </div>
+            <p style="font-size:.85rem;color:var(--text-muted);">Trigger chains of actions across all your devices with a single voice command or scheduled routine.</p>
+          </div>
+
+          <div class="feature-card" style="padding:1.5rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;">
+              <div class="feature-icon icon-purple" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;">📊</div>
+              <div>
+                <h3 style="font-size:1rem;margin:0;">Intelligent Insights</h3>
+                <p style="font-size:.8rem;color:var(--text-muted);margin:0;">Powered by your own data</p>
+              </div>
+            </div>
+            <p style="font-size:.85rem;color:var(--text-muted);">Weekly AI-generated reports reveal exactly where your time goes and how to reclaim it.</p>
+          </div>
+
+          <div class="feature-card" style="padding:1.5rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;">
+              <div class="feature-icon icon-gold" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;">🔗</div>
+              <div>
+                <h3 style="font-size:1rem;margin:0;">Seamless Integrations</h3>
+                <p style="font-size:.8rem;color:var(--text-muted);margin:0;">Works with 500+ apps</p>
+              </div>
+            </div>
+            <p style="font-size:.85rem;color:var(--text-muted);">Connect with Notion, Slack, Google Workspace, Apple Home, Alexa, and hundreds more — no coding needed.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Task Showcase",
+  "settings": [
+    { "type": "text",     "id": "badge",          "label": "Badge",          "default": "Task Intelligence" },
+    { "type": "text",     "id": "heading",         "label": "Heading",        "default": "Stop Managing Tasks." },
+    { "type": "text",     "id": "heading_accent",  "label": "Heading Accent", "default": "Let Tasks Manage Themselves." },
+    { "type": "textarea", "id": "body",            "label": "Body Text" }
+  ],
+  "presets": [{ "name": "Task Showcase" }]
+}
+{% endschema %}

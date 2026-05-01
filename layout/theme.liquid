@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060b18">
+
+  <title>
+    {%- if template == 'index' -%}
+      {{ shop.name }} — Smart Products for Smarter Living
+    {%- elsif page_title -%}
+      {{ page_title }} | {{ shop.name }}
+    {%- else -%}
+      {{ shop.name }}
+    {%- endif -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- else -%}
+    <meta name="description" content="Discover smart products & services that transform task management, boost productivity, and make everyday life effortlessly comfortable — delivered worldwide.">
+  {%- endif -%}
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="{{ page_title | default: shop.name }}">
+  <meta property="og:description" content="{{ page_description | default: 'Smart products for smarter living.' }}">
+  <meta property="og:url"         content="{{ canonical_url }}">
+  {%- if settings.share_image -%}
+    <meta property="og:image" content="{{ settings.share_image | image_url: width: 1200 }}">
+  {%- endif -%}
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  {{ content_for_header }}
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+</head>
+
+<body class="template-{{ template | replace: '.', '-' }}">
+
+  <!-- ══ SITE HEADER ══════════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="{{ routes.root_url }}" class="nav-logo" aria-label="{{ shop.name }} home">
+        <span class="logo-icon" aria-hidden="true">⚡</span>
+        <span class="gradient-text">{{ shop.name | default: 'SmartSphere' }}</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="{{ routes.root_url }}">Home</a></li>
+        <li><a href="{{ routes.collections_url }}">Products</a></li>
+        <li><a href="/pages/services">Services</a></li>
+        <li><a href="/pages/about">About</a></li>
+        <li><a href="/blogs/news">Blog</a></li>
+        <li><a href="/pages/contact">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <a href="{{ routes.search_url }}" class="nav-icon-btn" aria-label="Search">🔍</a>
+
+        <a href="{{ routes.cart_url }}" class="nav-icon-btn" aria-label="Cart ({{ cart.item_count }} items)">
+          🛒
+          {%- if cart.item_count > 0 -%}
+            <span class="cart-badge">{{ cart.item_count }}</span>
+          {%- endif -%}
+        </a>
+
+        {%- if shop.customer_accounts_enabled -%}
+          {%- if customer -%}
+            <a href="{{ routes.account_url }}" class="btn btn-ghost">Account</a>
+          {%- else -%}
+            <a href="{{ routes.account_login_url }}" class="btn btn-ghost">Login</a>
+          {%- endif -%}
+        {%- endif -%}
+
+        <a href="{{ routes.collections_url }}" class="btn btn-primary">Shop Now</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- ══ MAIN ════════════════════════════════════════════════════════ -->
+  <main id="main-content" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  <!-- ══ SITE FOOTER ══════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-icon" aria-hidden="true">⚡</span>
+            <span class="gradient-text">{{ shop.name | default: 'SmartSphere' }}</span>
+          </div>
+          <p>Smart products &amp; services that transform how you work, live, and connect — from every corner of the world to yours.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+            <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="/collections/smart-devices">Smart Devices</a></li>
+            <li><a href="/collections/productivity">Productivity Tools</a></li>
+            <li><a href="/collections/home-automation">Home Automation</a></li>
+            <li><a href="/collections/wearables">Wearables</a></li>
+            <li><a href="/collections/ai-tools">AI Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/pages/setup">Smart Setup</a></li>
+            <li><a href="/pages/consulting">Consulting</a></li>
+            <li><a href="/pages/support">24/7 Support</a></li>
+            <li><a href="/pages/warranty">Warranty</a></li>
+            <li><a href="/pages/enterprise">Enterprise</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pages/about">About Us</a></li>
+            <li><a href="/blogs/news">Blog</a></li>
+            <li><a href="/pages/careers">Careers</a></li>
+            <li><a href="/pages/press">Press Kit</a></li>
+            <li><a href="/pages/partners">Partners</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/pages/faq">FAQ</a></li>
+            <li><a href="/pages/shipping">Shipping Info</a></li>
+            <li><a href="/pages/returns">Returns</a></li>
+            <li><a href="/pages/contact">Contact Us</a></li>
+            <li><a href="/pages/track">Track Order</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | default: 'SmartSphere' }}. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="/policies/privacy-policy">Privacy</a>
+          <a href="/policies/terms-of-service">Terms</a>
+          <a href="/policies/refund-policy">Refunds</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!-- ══ SERVICES ═══════════════════════════════════════════════════════ -->
+<section class="services-section" id="services" aria-labelledby="services-heading">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <div class="badge">⚡ {{ section.settings.badge | default: 'What We Offer' }}</div>
+      <h2 id="services-heading">
+        {{ section.settings.heading | default: 'Services Designed for' }}
+        <span class="gradient-text">{{ section.settings.heading_accent | default: 'Your Success' }}</span>
+      </h2>
+      <p>{{ section.settings.subheading | default: 'Beyond products — we provide an ecosystem of services to help you set up, integrate, scale, and get the most from every smart device you own.' }}</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-glow s-glow-cyan"></div>
+        <div class="service-icon">🔧</div>
+        <h3>Smart Setup & Installation</h3>
+        <p>Our certified technicians handle everything — from unboxing to full ecosystem integration — in person or via video guided sessions worldwide.</p>
+        <ul class="service-features">
+          <li class="service-feat">Remote or in-home setup</li>
+          <li class="service-feat">Cross-device integration</li>
+          <li class="service-feat">Personalised configuration</li>
+          <li class="service-feat">2-hour response guarantee</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-glow s-glow-purple"></div>
+        <div class="service-icon">📋</div>
+        <h3>Task Management Consulting</h3>
+        <p>Personal productivity coaches help you design workflows, automate repetitive work, and build systems that scale with your life or business.</p>
+        <ul class="service-features">
+          <li class="service-feat">1-on-1 coaching sessions</li>
+          <li class="service-feat">Custom automation blueprints</li>
+          <li class="service-feat">Team productivity workshops</li>
+          <li class="service-feat">Ongoing optimisation reviews</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-glow s-glow-gold"></div>
+        <div class="service-icon">🛡️</div>
+        <h3>SmartCare Protection Plan</h3>
+        <p>Comprehensive coverage for every product — hardware replacement, software updates, accident protection, and priority support in one plan.</p>
+        <ul class="service-features">
+          <li class="service-feat">Accidental damage cover</li>
+          <li class="service-feat">Free hardware swap within 48h</li>
+          <li class="service-feat">Lifetime software updates</li>
+          <li class="service-feat">Priority 24/7 hotline access</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-glow s-glow-cyan"></div>
+        <div class="service-icon">🌐</div>
+        <h3>International Business Solutions</h3>
+        <p>Bulk pricing, custom branding, and dedicated account managers for enterprises equipping teams across multiple countries.</p>
+        <ul class="service-features">
+          <li class="service-feat">Volume discounts from 10 units</li>
+          <li class="service-feat">White-label & custom branding</li>
+          <li class="service-feat">Global multi-site delivery</li>
+          <li class="service-feat">Dedicated account manager</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-glow s-glow-purple"></div>
+        <div class="service-icon">🔄</div>
+        <h3>Device Trade-In & Upgrade</h3>
+        <p>Trade in your old smart devices for credit toward the latest models. We refurbish and donate to partner schools around the world.</p>
+        <ul class="service-features">
+          <li class="service-feat">Instant online valuation</li>
+          <li class="service-feat">Free collection shipping label</li>
+          <li class="service-feat">Credit applied at checkout</li>
+          <li class="service-feat">Eco-certified refurbishment</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-glow s-glow-gold"></div>
+        <div class="service-icon">📚</div>
+        <h3>SmartSphere Academy</h3>
+        <p>Unlimited access to 500+ video lessons, live webinars, and certification programmes on productivity, automation, and smart living.</p>
+        <ul class="service-features">
+          <li class="service-feat">500+ on-demand lessons</li>
+          <li class="service-feat">Weekly live expert webinars</li>
+          <li class="service-feat">Industry certifications</li>
+          <li class="service-feat">Private community access</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Services",
+  "settings": [
+    { "type": "text",     "id": "badge",          "label": "Badge",          "default": "What We Offer" },
+    { "type": "text",     "id": "heading",         "label": "Heading",        "default": "Services Designed for" },
+    { "type": "text",     "id": "heading_accent",  "label": "Heading Accent", "default": "Your Success" },
+    { "type": "textarea", "id": "subheading",      "label": "Subheading" }
+  ],
+  "presets": [{ "name": "Services" }]
+}
+{% endschema %}
