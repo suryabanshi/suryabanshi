@@ -1,0 +1,111 @@
+{
+  "name": "Knowledge System — Master Sync Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [{ "field": "hours", "hoursInterval": 1 }] }
+      },
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [240, 300],
+      "id": "schedule-trigger"
+    },
+    {
+      "parameters": {
+        "url": "={{$env.KNOWLEDGE_API_URL}}/api/v1/sync/run",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": { "timeout": 300000 }
+      },
+      "name": "Trigger Ingestion",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [460, 300],
+      "id": "trigger-ingestion"
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "name": "Wait 30s",
+      "type": "n8n-nodes-base.wait",
+      "position": [680, 300],
+      "id": "wait"
+    },
+    {
+      "parameters": {
+        "url": "={{$env.KNOWLEDGE_API_URL}}/api/v1/process/run",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth"
+      },
+      "name": "Trigger Processing",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [900, 300],
+      "id": "trigger-processing"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [{ "value1": "={{new Date().getHours()}}", "operation": "equal", "value2": 8 }]
+        }
+      },
+      "name": "Is 8AM?",
+      "type": "n8n-nodes-base.if",
+      "position": [1120, 300],
+      "id": "is-8am"
+    },
+    {
+      "parameters": {
+        "url": "={{$env.KNOWLEDGE_API_URL}}/api/v1/insights/generate",
+        "method": "POST",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth"
+      },
+      "name": "Generate Daily Insights",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1340, 200],
+      "id": "generate-insights"
+    },
+    {
+      "parameters": {
+        "url": "={{$env.SLACK_WEBHOOK_URL}}",
+        "method": "POST",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\"text\": \"📊 *Daily Knowledge Digest*\\n\\nNew insights: {{$json.insights_generated}}\\nTop opportunities: {{$json.top_opportunities.length}}\\n\\nView dashboard: {{$env.KNOWLEDGE_API_URL}}/dashboard\"}"
+      },
+      "name": "Send Slack Digest",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1560, 200],
+      "id": "slack-digest"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "={{$env.GOOGLE_SHEET_ID}}",
+        "sheetName": "Sync Log",
+        "dataMode": "autoMapInputData"
+      },
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [1560, 400],
+      "id": "log-sheets"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": { "main": [[{ "node": "Trigger Ingestion", "type": "main", "index": 0 }]] },
+    "Trigger Ingestion": { "main": [[{ "node": "Wait 30s", "type": "main", "index": 0 }]] },
+    "Wait 30s": { "main": [[{ "node": "Trigger Processing", "type": "main", "index": 0 }]] },
+    "Trigger Processing": { "main": [[{ "node": "Is 8AM?", "type": "main", "index": 0 }]] },
+    "Is 8AM?": {
+      "main": [
+        [{ "node": "Generate Daily Insights", "type": "main", "index": 0 }],
+        [{ "node": "Log to Google Sheets", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Daily Insights": { "main": [[{ "node": "Send Slack Digest", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "knowledge-system" }]
+}
