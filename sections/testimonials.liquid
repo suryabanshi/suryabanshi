@@ -1,0 +1,109 @@
+<!-- ══ TESTIMONIALS ════════════════════════════════════════════════════ -->
+<section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <div class="badge">💬 {{ section.settings.badge | default: 'Customer Stories' }}</div>
+      <h2 id="testimonials-heading">
+        {{ section.settings.heading | default: 'Loved by People' }}
+        <span class="gradient-text">{{ section.settings.heading_accent | default: 'Everywhere' }}</span>
+      </h2>
+      <p>{{ section.settings.subheading | default: 'Real stories from real customers across 190 countries — discover how SmartSphere products are transforming daily life from Tokyo to Toronto.' }}</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card featured reveal">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#00d4ff,#7b2ff7);" aria-hidden="true">A</div>
+          <div>
+            <div class="tc-name">Aiko Tanaka</div>
+            <div class="tc-meta">Product Designer · Tokyo, Japan</div>
+          </div>
+        </div>
+        <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="tc-text">"The SmartHub Pro X1 changed how I run my studio. Every device — lights, speakers, displays — now responds to a single voice command. I've reclaimed 2 hours every day I used to waste on setup."</p>
+        <div class="tc-country"><span>🇯🇵</span> Delivered to Japan in 3 days</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#f5c842,#ff9a3c);" aria-hidden="true">M</div>
+          <div>
+            <div class="tc-name">Marcus Webb</div>
+            <div class="tc-meta">Remote Team Lead · Toronto, Canada</div>
+          </div>
+        </div>
+        <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="tc-text">"TaskFlow Desk Station is the best investment I've made for my home office. The posture alerts alone have eliminated my back pain. My focus score jumped 40% in the first month."</p>
+        <div class="tc-country"><span>🇨🇦</span> Delivered to Canada in 2 days</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#00e5a0,#00d4ff);" aria-hidden="true">F</div>
+          <div>
+            <div class="tc-name">Fatima Al-Hassan</div>
+            <div class="tc-meta">Entrepreneur · Lagos, Nigeria</div>
+          </div>
+        </div>
+        <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="tc-text">"I run three businesses and SmartSphere's AI Suite handles my scheduling, follows up on emails, and keeps my team in sync. It's like having a brilliant executive assistant 24/7."</p>
+        <div class="tc-country"><span>🇳🇬</span> Delivered to Nigeria in 5 days</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#7b2ff7,#ff6baf);" aria-hidden="true">L</div>
+          <div>
+            <div class="tc-name">Luís Ferreira</div>
+            <div class="tc-meta">Software Engineer · Lisbon, Portugal</div>
+          </div>
+        </div>
+        <div class="tc-stars" aria-label="4 out of 5 stars">★★★★☆</div>
+        <p class="tc-text">"The 24/7 support is genuinely impressive — had a setup question at 2 AM and got a real expert in 4 minutes. The FocusArc headphones are also insane for deep work sessions."</p>
+        <div class="tc-country"><span>🇵🇹</span> Delivered to Portugal in 2 days</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#ff4500,#f5c842);" aria-hidden="true">P</div>
+          <div>
+            <div class="tc-name">Priya Sharma</div>
+            <div class="tc-meta">Healthcare Admin · Mumbai, India</div>
+          </div>
+        </div>
+        <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="tc-text">"We outfitted our entire clinic with SmartSphere devices. The enterprise plan saved us 30% over retail and our dedicated manager sorted everything in days. Exceptional service."</p>
+        <div class="tc-country"><span>🇮🇳</span> Enterprise order — Mumbai</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#3b82f6,#00d4ff);" aria-hidden="true">E</div>
+          <div>
+            <div class="tc-name">Elena Müller</div>
+            <div class="tc-meta">Content Creator · Berlin, Germany</div>
+          </div>
+        </div>
+        <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="tc-text">"LumiSmart lights transformed my filming setup. The circadian rhythm mode keeps my energy up during long editing sessions and the automation just works — no fiddling required."</p>
+        <div class="tc-country"><span>🇩🇪</span> Delivered to Germany in 1 day</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text",     "id": "badge",          "label": "Badge",          "default": "Customer Stories" },
+    { "type": "text",     "id": "heading",         "label": "Heading",        "default": "Loved by People" },
+    { "type": "text",     "id": "heading_accent",  "label": "Heading Accent", "default": "Everywhere" },
+    { "type": "textarea", "id": "subheading",      "label": "Subheading" }
+  ],
+  "presets": [{ "name": "Testimonials" }]
+}
+{% endschema %}

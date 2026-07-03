@@ -1,0 +1,54 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name":    "SmartSphere",
+    "theme_version": "1.0.0",
+    "theme_author":  "SmartSphere Studio",
+    "theme_documentation_url": "https://smartsphere.shop/theme-docs",
+    "theme_support_url":       "https://smartsphere.shop/support"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "accent_cyan",   "label": "Accent Cyan",   "default": "#00d4ff" },
+      { "type": "color", "id": "accent_purple", "label": "Accent Purple", "default": "#7b2ff7" },
+      { "type": "color", "id": "accent_gold",   "label": "Accent Gold",   "default": "#f5c842" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body Font",
+        "default": "inter_n4"
+      },
+      {
+        "type": "range",
+        "id": "body_font_size",
+        "label": "Body Font Size (px)",
+        "min": 14, "max": 20, "step": 1, "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      { "type": "text", "id": "social_twitter",   "label": "Twitter URL" },
+      { "type": "text", "id": "social_instagram",  "label": "Instagram URL" },
+      { "type": "text", "id": "social_youtube",    "label": "YouTube URL" },
+      { "type": "text", "id": "social_linkedin",   "label": "LinkedIn URL" }
+    ]
+  },
+  {
+    "name": "SEO & Sharing",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Default Social Share Image"
+      }
+    ]
+  }
+]

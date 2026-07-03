@@ -1,0 +1,80 @@
+<!-- ══ GLOBAL REACH ════════════════════════════════════════════════════ -->
+<section class="global-section" id="global" aria-labelledby="global-heading">
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="global-content">
+
+      <!-- Text + stats -->
+      <div>
+        <div class="badge reveal">🌐 {{ section.settings.badge | default: 'Global Presence' }}</div>
+        <h2 id="global-heading" class="reveal" style="font-size:clamp(1.75rem,4vw,3rem);font-weight:800;line-height:1.2;margin-top:1rem;margin-bottom:1rem;">
+          {{ section.settings.heading | default: 'Connecting Customers' }}<br>
+          <span class="gradient-text">{{ section.settings.heading_accent | default: 'Across Every Continent' }}</span>
+        </h2>
+        <p class="reveal" style="color:var(--text-muted);font-size:1.05rem;line-height:1.75;max-width:44ch;">
+          {{ section.settings.body | default: 'From Tokyo apartments to Lagos offices, from Berlin studios to São Paulo homes — SmartSphere products reach every corner of the globe, backed by localised support in 40+ languages.' }}
+        </p>
+
+        <div class="global-stats reveal">
+          <div class="global-stat-card">
+            <div class="gsc-icon">🌍</div>
+            <div class="gsc-value">
+              <span data-count="190" data-suffix="+">0+</span>
+            </div>
+            <div class="gsc-label">Countries Served</div>
+          </div>
+          <div class="global-stat-card">
+            <div class="gsc-icon">👥</div>
+            <div class="gsc-value">
+              <span data-count="120" data-suffix="k+">0k+</span>
+            </div>
+            <div class="gsc-label">Happy Customers</div>
+          </div>
+          <div class="global-stat-card">
+            <div class="gsc-icon">📦</div>
+            <div class="gsc-value">
+              <span data-count="850" data-suffix="k+">0k+</span>
+            </div>
+            <div class="gsc-label">Orders Delivered</div>
+          </div>
+          <div class="global-stat-card">
+            <div class="gsc-icon">⭐</div>
+            <div class="gsc-value">
+              <span data-count="4.9" data-suffix="">0</span>
+            </div>
+            <div class="gsc-label">Avg. Rating / 5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Globe -->
+      <div class="globe-wrap reveal" aria-hidden="true">
+        <div class="globe-ring ring-1"></div>
+        <div class="globe-ring ring-2"></div>
+        <div class="globe-ring ring-3"></div>
+
+        <div class="globe">🌍</div>
+
+        <div class="globe-ping ping-1"></div>
+        <div class="globe-ping ping-2"></div>
+        <div class="globe-ping ping-3"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Global Reach",
+  "settings": [
+    { "type": "text",     "id": "badge",          "label": "Badge",           "default": "Global Presence" },
+    { "type": "text",     "id": "heading",         "label": "Heading",         "default": "Connecting Customers" },
+    { "type": "text",     "id": "heading_accent",  "label": "Heading Accent",  "default": "Across Every Continent" },
+    { "type": "textarea", "id": "body",            "label": "Body Text" }
+  ],
+  "presets": [{ "name": "Global Reach" }]
+}
+{% endschema %}

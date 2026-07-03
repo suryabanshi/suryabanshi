@@ -1,0 +1,9 @@
+{
+  "current": {
+    "accent_cyan":    "#00d4ff",
+    "accent_purple":  "#7b2ff7",
+    "accent_gold":    "#f5c842",
+    "body_font":      "inter_n4",
+    "body_font_size": 16
+  }
+}

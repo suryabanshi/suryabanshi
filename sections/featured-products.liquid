@@ -1,0 +1,300 @@
+<!-- ══ FEATURED PRODUCTS ═════════════════════════════════════════════ -->
+<section class="products-section" id="products" aria-labelledby="products-heading">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <div class="badge">🛍️ {{ section.settings.badge | default: 'Top Picks' }}</div>
+      <h2 id="products-heading">
+        {{ section.settings.heading | default: 'Smart Products,' }}
+        <span class="gradient-text">{{ section.settings.heading_accent | default: 'Real Results' }}</span>
+      </h2>
+      <p>{{ section.settings.subheading | default: 'Handpicked innovations that solve real problems — from home automation to professional-grade productivity tools that customers across 190 countries trust daily.' }}</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="products-filter" role="tablist" aria-label="Product categories">
+      <button class="filter-btn active" data-filter="all"        role="tab" aria-selected="true">All</button>
+      <button class="filter-btn"        data-filter="smart-home" role="tab" aria-selected="false">Smart Home</button>
+      <button class="filter-btn"        data-filter="productivity"role="tab" aria-selected="false">Productivity</button>
+      <button class="filter-btn"        data-filter="wearables"  role="tab" aria-selected="false">Wearables</button>
+      <button class="filter-btn"        data-filter="ai-tools"   role="tab" aria-selected="false">AI Tools</button>
+    </div>
+
+    {%- if section.settings.collection != blank -%}
+      {%- assign featured_col = collections[section.settings.collection] -%}
+    {%- endif -%}
+
+    <div class="products-grid" role="list">
+
+      {%- if featured_col and featured_col.products.size > 0 -%}
+
+        {%- for product in featured_col.products limit: 8 -%}
+          <div class="product-card reveal" role="listitem" data-category="{{ product.type | handleize }}">
+            <div class="product-image-wrap">
+              {%- if product.featured_image -%}
+                <img src="{{ product.featured_image | image_url: width: 400 }}"
+                     alt="{{ product.featured_image.alt | escape }}"
+                     loading="lazy" width="400" height="300">
+              {%- else -%}
+                <span class="product-emoji">📦</span>
+              {%- endif -%}
+
+              {%- if product.tags contains 'new' -%}
+                <span class="product-badge-tag tag-new">New</span>
+              {%- elsif product.tags contains 'hot' -%}
+                <span class="product-badge-tag tag-hot">🔥 Hot</span>
+              {%- elsif product.compare_at_price > product.price -%}
+                <span class="product-badge-tag tag-sale">Sale</span>
+              {%- endif -%}
+
+              <div class="product-actions">
+                <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+                <a href="{{ product.url }}?view=quick" class="action-btn" aria-label="Quick view">👁</a>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-category">{{ product.type | default: 'Smart Product' }}</div>
+              <h3 class="product-name">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              <p class="product-desc">{{ product.description | strip_html | truncate: 90 }}</p>
+
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-count">({{ product.metafields.reviews.count | default: '124' }})</span>
+              </div>
+
+              <div class="product-footer">
+                <div class="product-price">
+                  <div class="price-current">{{ product.price | money }}</div>
+                  {%- if product.compare_at_price > product.price -%}
+                    <div class="price-original">{{ product.compare_at_price | money }}</div>
+                  {%- endif -%}
+                </div>
+                <button class="add-to-cart"
+                        data-product-id="{{ product.variants.first.id }}"
+                        aria-label="Add {{ product.title }} to cart">
+                  🛒 Add
+                </button>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+
+      {%- else -%}
+        <!-- Demo cards when no collection is configured -->
+
+        <div class="product-card reveal" role="listitem" data-category="smart-home">
+          <div class="product-image-wrap">
+            <span class="product-emoji">🏠</span>
+            <span class="product-badge-tag tag-hot">🔥 Hot</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Smart Home</div>
+            <h3 class="product-name"><a href="#">SmartHub Pro X1</a></h3>
+            <p class="product-desc">Control all smart devices from one intelligent hub with AI scene detection and voice control.</p>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(2,847)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$189.99</div>
+                <div class="price-original">$249.99</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add SmartHub Pro X1 to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="productivity">
+          <div class="product-image-wrap">
+            <span class="product-emoji">💻</span>
+            <span class="product-badge-tag tag-new">New</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Productivity</div>
+            <h3 class="product-name"><a href="#">TaskFlow Desk Station</a></h3>
+            <p class="product-desc">An ergonomic smart station with wireless charging, posture alerts, and ambient sensors.</p>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(1,205)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$299.00</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add TaskFlow Desk Station to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="wearables">
+          <div class="product-image-wrap">
+            <span class="product-emoji">⌚</span>
+            <span class="product-badge-tag tag-sale">Sale</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Wearables</div>
+            <h3 class="product-name"><a href="#">PulseIQ Smart Band 5</a></h3>
+            <p class="product-desc">Health monitoring, task alerts, stress tracking, and 14-day battery in a sleek design.</p>
+            <div class="product-rating"><span class="stars">★★★★½</span><span class="rating-count">(3,491)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$79.99</div>
+                <div class="price-original">$119.99</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add PulseIQ Smart Band 5 to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="ai-tools">
+          <div class="product-image-wrap">
+            <span class="product-emoji">🤖</span>
+            <span class="product-badge-tag tag-pro">Pro</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">AI Tools</div>
+            <h3 class="product-name"><a href="#">NeuralAssist AI Suite</a></h3>
+            <p class="product-desc">Full-featured AI assistant for scheduling, drafting, research, and decision support.</p>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(956)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$49.99<small>/mo</small></div>
+              </div>
+              <button class="add-to-cart" aria-label="Add NeuralAssist AI Suite to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="smart-home">
+          <div class="product-image-wrap">
+            <span class="product-emoji">💡</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Smart Home</div>
+            <h3 class="product-name"><a href="#">LumiSmart Color Kit</a></h3>
+            <p class="product-desc">16M colour Wi-Fi bulbs with circadian rhythm scheduling and mood-aware automation.</p>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(4,128)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$59.95</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add LumiSmart Color Kit to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="productivity">
+          <div class="product-image-wrap">
+            <span class="product-emoji">🎧</span>
+            <span class="product-badge-tag tag-hot">🔥 Hot</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Productivity</div>
+            <h3 class="product-name"><a href="#">FocusArc Noise Pro</a></h3>
+            <p class="product-desc">Adaptive ANC headphones that tune noise cancellation to your environment and focus level.</p>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(2,063)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$199.00</div>
+                <div class="price-original">$259.00</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add FocusArc Noise Pro to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="smart-home">
+          <div class="product-image-wrap">
+            <span class="product-emoji">🔌</span>
+            <span class="product-badge-tag tag-new">New</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Smart Home</div>
+            <h3 class="product-name"><a href="#">PowerGuard Smart Strip</a></h3>
+            <p class="product-desc">Energy-monitoring smart power strip with surge protection and automated scheduling.</p>
+            <div class="product-rating"><span class="stars">★★★★½</span><span class="rating-count">(782)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$44.99</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add PowerGuard Smart Strip to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal" role="listitem" data-category="wearables">
+          <div class="product-image-wrap">
+            <span class="product-emoji">👓</span>
+            <span class="product-badge-tag tag-pro">Pro</span>
+            <div class="product-actions">
+              <button class="action-btn wishlist" aria-label="Add to wishlist">🤍</button>
+              <button class="action-btn" aria-label="Quick view">👁</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Wearables</div>
+            <h3 class="product-name"><a href="#">VisionHUD Smart Glasses</a></h3>
+            <p class="product-desc">AR-enabled glasses with real-time notifications, navigation, and hands-free task management.</p>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(431)</span></div>
+            <div class="product-footer">
+              <div class="product-price">
+                <div class="price-current">$349.00</div>
+              </div>
+              <button class="add-to-cart" aria-label="Add VisionHUD Smart Glasses to cart">🛒 Add</button>
+            </div>
+          </div>
+        </div>
+
+      {%- endif -%}
+    </div>
+
+    <div class="products-cta reveal">
+      <a href="{{ section.settings.cta_url | default: routes.collections_url }}" class="btn btn-primary btn-large">
+        {{ section.settings.cta_text | default: 'View All Products' }} →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    { "type": "text",       "id": "badge",           "label": "Badge",            "default": "Top Picks" },
+    { "type": "text",       "id": "heading",          "label": "Heading",          "default": "Smart Products," },
+    { "type": "text",       "id": "heading_accent",   "label": "Heading Accent",   "default": "Real Results" },
+    { "type": "textarea",   "id": "subheading",       "label": "Subheading" },
+    { "type": "collection", "id": "collection",       "label": "Product Collection" },
+    { "type": "text",       "id": "cta_text",         "label": "CTA Button Text",  "default": "View All Products" },
+    { "type": "url",        "id": "cta_url",          "label": "CTA URL" }
+  ],
+  "presets": [{ "name": "Featured Products" }]
+}
+{% endschema %}

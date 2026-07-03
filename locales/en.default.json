@@ -1,0 +1,44 @@
+{
+  "general": {
+    "search": { "placeholder": "Search smart products...", "submit": "Search" },
+    "password_page": { "login_form_heading": "Enter store password", "login_form_password_label": "Password", "login_form_submit": "Enter" },
+    "pagination": { "previous": "← Previous", "next": "Next →" }
+  },
+  "products": {
+    "product": {
+      "add_to_cart":       "Add to Cart",
+      "sold_out":          "Sold Out",
+      "unavailable":       "Unavailable",
+      "quantity":          "Quantity",
+      "compare_at_price":  "Regular price",
+      "price":             "Sale price"
+    }
+  },
+  "cart": {
+    "general": {
+      "title":          "Your Smart Cart",
+      "empty":          "Your cart is empty — let's fix that!",
+      "checkout":       "Secure Checkout",
+      "item_count":     { "one": "{{ count }} item", "other": "{{ count }} items" },
+      "subtotal":       "Subtotal",
+      "remove":         "Remove"
+    }
+  },
+  "customer": {
+    "login":    { "title": "Sign In",    "submit": "Sign In",    "forgot_password": "Forgot password?" },
+    "register": { "title": "Create Account", "submit": "Create Account" },
+    "account":  { "title": "My Account",  "orders": "Order History" },
+    "addresses":{ "title": "Addresses" }
+  },
+  "newsletter": {
+    "label":  "Subscribe to our newsletter",
+    "submit": "Subscribe Free",
+    "success": "Thanks for subscribing!"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "open_menu":       "Open menu",
+    "close_menu":      "Close menu",
+    "cart":            "Cart"
+  }
+}

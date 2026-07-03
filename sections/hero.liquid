@@ -1,0 +1,144 @@
+<!-- ══ HERO ═══════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="Hero">
+
+  <!-- Particle canvas -->
+  <canvas id="hero-particles" class="hero-canvas" aria-hidden="true"></canvas>
+
+  <!-- Glow orbs -->
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <div class="hero-content">
+
+    <!-- ── Text side ─────────────────────────────────────────────── -->
+    <div class="hero-text">
+      <div class="badge" aria-label="Launch announcement">
+        🚀 {{ section.settings.badge_text | default: 'Now Shipping Worldwide' }}
+      </div>
+
+      <h1 class="hero-headline">
+        {{ section.settings.headline_line1 | default: 'Your Gateway to' }}<br>
+        <span class="gradient-text" id="hero-typed" aria-live="polite">Smarter Living</span>
+      </h1>
+
+      <p class="hero-sub">
+        {{ section.settings.subheadline | default: 'Discover premium smart products and services that simplify task management, boost productivity, and bring comfort to every corner of your world — designed for humans who demand more.' }}
+      </p>
+
+      <div class="hero-ctas">
+        <a href="{{ section.settings.cta_primary_url | default: routes.collections_url }}" class="btn btn-primary btn-large">
+          {{ section.settings.cta_primary_text | default: 'Explore Products' }}
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="{{ section.settings.cta_secondary_url | default: '/pages/services' }}" class="btn btn-outline btn-large">
+          {{ section.settings.cta_secondary_text | default: 'Our Services' }}
+          <span aria-hidden="true">▶</span>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">
+            <span data-count="120" data-suffix="k+">0k+</span>
+          </div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">
+            <span data-count="190" data-suffix="+">0+</span>
+          </div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">
+            <span data-count="98" data-suffix="%">0%</span>
+          </div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Dashboard visual ──────────────────────────────────────── -->
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="hero-device">
+        <div class="device-header">
+          <div class="device-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="device-title">SmartSphere Dashboard</span>
+          <span style="font-size:.75rem;color:var(--accent-green);">● Live</span>
+        </div>
+
+        <div class="device-metrics">
+          <div class="metric-card">
+            <div class="m-label">Orders Today</div>
+            <div class="m-value">2,847</div>
+            <div class="m-trend">↑ 23% vs yesterday</div>
+          </div>
+          <div class="metric-card">
+            <div class="m-label">Active Users</div>
+            <div class="m-value">18.4k</div>
+            <div class="m-trend">↑ 11% this week</div>
+          </div>
+        </div>
+
+        <div class="device-activity">
+          <div class="activity-title">Live Activity</div>
+          <div class="activity-item">
+            <span class="activity-icon">📦</span>
+            <span class="activity-text">Order #SS-9142 shipped to Mumbai</span>
+            <span class="activity-time">2m ago</span>
+            <span class="activity-dot"></span>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">⭐</span>
+            <span class="activity-text">New 5-star review from Toronto</span>
+            <span class="activity-time">5m ago</span>
+            <span class="activity-dot purple"></span>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">🛒</span>
+            <span class="activity-text">SmartHub Pro sold — São Paulo</span>
+            <span class="activity-time">8m ago</span>
+            <span class="activity-dot gold"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating accent cards -->
+      <div class="floating-card card-1">
+        <span class="fc-icon">✅</span>
+        <div>
+          <div class="fc-label">Task Completed</div>
+          <div class="fc-value">+42 today</div>
+        </div>
+      </div>
+      <div class="floating-card card-2">
+        <span class="fc-icon">🌍</span>
+        <div>
+          <div class="fc-label">Global Reach</div>
+          <div class="fc-value">190+ countries</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text",    "id": "badge_text",         "label": "Badge Text",          "default": "Now Shipping Worldwide" },
+    { "type": "text",    "id": "headline_line1",      "label": "Headline Line 1",     "default": "Your Gateway to" },
+    { "type": "textarea","id": "subheadline",         "label": "Subheadline",         "default": "Discover premium smart products and services that simplify task management, boost productivity, and bring comfort to every corner of your world." },
+    { "type": "text",    "id": "cta_primary_text",    "label": "Primary CTA Text",    "default": "Explore Products" },
+    { "type": "url",     "id": "cta_primary_url",     "label": "Primary CTA URL" },
+    { "type": "text",    "id": "cta_secondary_text",  "label": "Secondary CTA Text",  "default": "Our Services" },
+    { "type": "url",     "id": "cta_secondary_url",   "label": "Secondary CTA URL" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}
