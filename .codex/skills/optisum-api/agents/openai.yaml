@@ -1,0 +1,4 @@
+interface:
+  display_name: "OptiSum API"
+  short_description: "Build and troubleshoot OptiSum API integrations."
+  default_prompt: "Use the OptiSum API skill to design or troubleshoot an OptiSum API v2 integration."
