@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAI vae · SECURE DROPSHIP FUTURE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="top-glow"></div>
+
+  <div class="wrapper">
+    <header class="header">
+      <div class="logo">RAI <span class="vae">vae</span></div>
+      <nav class="nav" id="nav"></nav>
+      <div class="role-switch-wrapper">
+        <div class="security-badge">MCP SECURE</div>
+        <div class="role-switch">
+          <button class="role-btn active" type="button" data-role="user">👤 USER</button>
+          <button class="role-btn" type="button" data-role="shopkeeper">⚡ SHOPKEEPER</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-tag" id="hero-tag"></div>
+        <h1 class="hero-title"><span class="rai">RAI</span><span class="vae-big">vae</span></h1>
+        <div class="slogan" id="hero-slogan"></div>
+        <p class="hero-desc" id="hero-desc"></p>
+        <div class="cta-group" id="hero-ctas"></div>
+      </div>
+      <div class="hero-right">
+        <div class="fashion-canvas">
+          <div class="scan-line"></div>
+          <div class="abstract-figure"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker"><div class="ticker-content" id="ticker"></div></div>
+
+    <!-- USER VIEW -->
+    <div id="user-view">
+      <div class="section-label" id="collection">// LATEST TRANSMISSIONS · VERIFIED SAFE</div>
+      <div class="grid" id="product-grid"></div>
+    </div>
+
+    <!-- SHOPKEEPER LOGIN GATE -->
+    <div id="login-gate" class="login-gate" hidden>
+      <h3>SECURE ACCESS REQUIRED</h3>
+      <p>Enter your MCP credentials to access the shopkeeper dashboard</p>
+      <p class="login-hint">Demo mode — credentials live in js/config.js</p>
+      <div class="login-form">
+        <input type="text" class="login-input" id="mcp-id" placeholder="MCP-ID" autocomplete="off">
+        <input type="password" class="login-input" id="mcp-pass" placeholder="ACCESS KEY" autocomplete="off">
+        <button class="cta" id="login-btn" type="button">AUTHENTICATE</button>
+      </div>
+      <div class="access-message" id="access-message" role="status"></div>
+    </div>
+
+    <!-- SHOPKEEPER DASHBOARD -->
+    <div id="shopkeeper-view" class="shopkeeper-panel" hidden>
+      <div class="dashboard-header">
+        <h2>SHOPKEEPER <span>DASHBOARD</span></h2>
+        <div class="mcp-status">
+          <div class="mcp-badge mcp-connected">MCP CONNECTED</div>
+          <div class="mcp-badge mcp-filtered">FILTERED ACCESS</div>
+        </div>
+      </div>
+
+      <div class="dashboard-stats" id="stats"></div>
+
+      <div class="safety-panel">
+        <div class="safety-panel-header">
+          <h3>DROPSHIPPING SAFETY &amp; SECURITY</h3>
+          <div class="mcp-badge mcp-connected">ALL SYSTEMS SECURE</div>
+        </div>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <div class="safety-item-label">SUPPLIER VERIFICATION</div>
+            <div class="safety-item-value" id="safety-suppliers"></div>
+          </div>
+          <div class="safety-item">
+            <div class="safety-item-label">TRANSACTION FILTERING</div>
+            <div class="safety-item-value" id="safety-flagged"></div>
+          </div>
+          <div class="safety-item">
+            <div class="safety-item-label">MCP CONNECTION</div>
+            <div class="safety-item-value" id="safety-tunnel"></div>
+          </div>
+        </div>
+      </div>
+
+      <table class="inventory-table">
+        <thead>
+          <tr><th>PRODUCT</th><th>SKU</th><th>STOCK</th><th>PRICE</th><th>STATUS</th><th>ACTION</th></tr>
+        </thead>
+        <tbody id="inventory-body"></tbody>
+      </table>
+
+      <div class="actions-row">
+        <button class="cta cta-sm" type="button">ADD NEW PRODUCT</button>
+        <button class="cta cta-secondary cta-sm" type="button">VIEW ANALYTICS</button>
+        <button class="cta cta-secondary cta-sm" type="button">MCP LOGS</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div id="footer-copy"></div>
+      <div class="footer-links" id="footer-links"></div>
+    </footer>
+  </div>
+
+  <!-- Load order: config → data → render → app -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

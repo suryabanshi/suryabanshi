@@ -1,0 +1,26 @@
+/* Design tokens — single place to retheme the whole site */
+:root {
+  --bg: #08080c;
+  --surface: #0d0d14;
+  --surface-2: #0a0a12;
+  --surface-hover: #11111c;
+  --border: #1a1a28;
+  --border-2: #1e1e32;
+
+  --accent: #00e0ff;
+  --accent-soft: rgba(0, 224, 255, 0.15);
+  --ok: #00ff9d;
+  --warn: #ffb400;
+  --danger: #ff4d4d;
+
+  --text: #f0f0f5;
+  --text-2: #c0c0d8;
+  --text-3: #9a9ab0;
+  --text-4: #808098;
+  --text-5: #606078;
+
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --max-width: 1440px;
+}
