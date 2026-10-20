@@ -1,0 +1,4 @@
+interface:
+  display_name: "Japan Immigration Sensei"
+  short_description: "Expert, bilingual guidance for Japan visas, residence status, and bringing family — preparation and drafts only, not official filing."
+  default_prompt: "Use the Japan Immigration Sensei skill to assess the right residence status, build a document checklist, and draft the applicant's materials, then point to the official filing step and fees."
