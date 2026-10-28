@@ -1,4 +1,6 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 import { FileText, Clock, Eye, TrendingUp, ArrowRight, Tag } from 'lucide-react';
 
 const POSTS = [
@@ -161,19 +163,45 @@ export default function BlogPage() {
           <div className="text-4xl mb-4">📬</div>
           <h2 className="text-2xl font-black mb-3">Get Weekly Income Strategies</h2>
           <p className="text-white/50 mb-6">Join 24,000+ subscribers getting actionable income tactics every Tuesday.</p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 glass rounded-xl border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-brand-500 bg-transparent"
-            />
-            <button className="px-6 py-3 bg-brand-700 hover:bg-brand-600 rounded-xl font-bold transition-all whitespace-nowrap">
-              Subscribe Free
-            </button>
-          </div>
+          <NewsletterForm />
           <p className="text-xs text-white/20 mt-3">No spam. Unsubscribe anytime. 24,000+ readers.</p>
         </div>
       </div>
     </div>
+  );
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <div className="py-3 text-green-400 font-bold">
+        ✓ You're subscribed! Check your inbox for a welcome email.
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input
+        type="email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        placeholder="Enter your email"
+        required
+        className="flex-1 px-4 py-3 glass rounded-xl border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-brand-500 bg-transparent"
+      />
+      <button type="submit" className="px-6 py-3 bg-brand-700 hover:bg-brand-600 rounded-xl font-bold transition-all whitespace-nowrap">
+        Subscribe Free
+      </button>
+    </form>
   );
 }

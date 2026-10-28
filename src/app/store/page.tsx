@@ -107,7 +107,10 @@ export default function StorePage() {
                 ${PRODUCTS.filter(p => cart.includes(p.id)).reduce((s,p) => s+p.price, 0)}
               </span>
             </span>
-            <button className="px-6 py-2 bg-gold-gradient text-black font-bold rounded-xl text-sm hover:opacity-90 transition-all">
+            <button
+              onClick={() => alert('Payment integration (e.g. Stripe) coming soon! Your cart is saved.')}
+              className="px-6 py-2 bg-gold-gradient text-black font-bold rounded-xl text-sm hover:opacity-90 transition-all"
+            >
               Checkout Now →
             </button>
           </div>

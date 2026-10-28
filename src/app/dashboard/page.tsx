@@ -57,9 +57,14 @@ export default function DashboardPage() {
             <h1 className="text-4xl font-black">Income <span className="shimmer-text">Dashboard</span></h1>
             <p className="text-white/40 mt-1">Live view of your VaultFlow income machine</p>
           </div>
-          <div className="flex items-center gap-2 text-green-400 text-sm">
-            <RefreshCw size={14} className="animate-spin" />
-            Live updating
+          <div className="flex items-center gap-3">
+            <span className="px-2 py-1 rounded-md bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 text-xs font-bold">
+              DEMO DATA
+            </span>
+            <div className="flex items-center gap-2 text-green-400 text-sm">
+              <RefreshCw size={14} className="animate-spin" />
+              Live updating
+            </div>
           </div>
         </div>
 

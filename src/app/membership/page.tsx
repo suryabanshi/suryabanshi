@@ -76,6 +76,7 @@ export default function MembershipPage() {
                 </ul>
 
                 <button
+                  onClick={() => alert(`Starting ${tier.name} membership at $${annual ? Math.round(tier.price * 0.7) : tier.price}/mo — subscription checkout coming soon!`)}
                   className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 ${
                     tier.popular
                       ? 'bg-gold-gradient text-black hover:opacity-90 glow-gold'

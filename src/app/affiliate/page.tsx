@@ -163,12 +163,12 @@ function IncomeCalc() {
   return (
     <div className="space-y-5">
       {[
-        { label: 'Monthly Link Clicks', value: clicks, setValue: setClicks, min: 100, max: 10000, step: 100 },
-        { label: `Conversion Rate (${rate}%)`, value: rate, setValue: setRate, min: 0.5, max: 10, step: 0.5 },
-        { label: `Product Price ($${product})`, value: product, setValue: setProduct, min: 29, max: 299, step: 10 },
-        { label: `Commission Rate (${commission}%)`, value: commission, setValue: setCommission, min: 10, max: 50, step: 5 },
-      ].map(({ label, value, setValue, min, max, step }) => (
-        <div key={label}>
+        { id: 'clicks',     label: 'Monthly Link Clicks',          value: clicks,      setValue: setClicks,      min: 100,  max: 10000, step: 100 },
+        { id: 'rate',       label: `Conversion Rate (${rate}%)`,   value: rate,        setValue: setRate,        min: 0.5,  max: 10,    step: 0.5 },
+        { id: 'product',    label: `Product Price ($${product})`,  value: product,     setValue: setProduct,     min: 29,   max: 299,   step: 10  },
+        { id: 'commission', label: `Commission Rate (${commission}%)`, value: commission, setValue: setCommission, min: 10, max: 50,    step: 5   },
+      ].map(({ id, label, value, setValue, min, max, step }) => (
+        <div key={id}>
           <div className="flex justify-between text-sm text-white/60 mb-2">
             <span>{label}</span>
           </div>
