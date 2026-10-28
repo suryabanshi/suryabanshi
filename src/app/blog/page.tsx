@@ -110,9 +110,9 @@ export default function BlogPage() {
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4 max-w-3xl">{featured.title}</h2>
             <p className="text-white/60 text-lg mb-6 max-w-2xl">{featured.excerpt}</p>
             <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 px-6 py-3 bg-gold-gradient text-black font-bold rounded-xl hover:opacity-90 transition-all">
+              <Link href={`/blog/${featured.id}`} className="flex items-center gap-2 px-6 py-3 bg-gold-gradient text-black font-bold rounded-xl hover:opacity-90 transition-all">
                 Read Article <ArrowRight size={16} />
-              </button>
+              </Link>
               <span className="text-white/30 text-sm">{featured.date}</span>
             </div>
           </div>
@@ -148,9 +148,9 @@ export default function BlogPage() {
                   <span className="text-xs text-white/30">{post.date}</span>
                   <div className="flex items-center gap-3">
                     <span className="text-xs text-white/30 flex items-center gap-1"><Eye size={10} /> {post.views}</span>
-                    <button className="text-xs text-white/50 hover:text-white flex items-center gap-1 transition-colors">
+                    <Link href={`/blog/${post.id}`} className="text-xs text-white/50 hover:text-white flex items-center gap-1 transition-colors">
                       Read <ArrowRight size={10} />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

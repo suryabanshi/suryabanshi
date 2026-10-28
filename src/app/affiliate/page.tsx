@@ -22,12 +22,18 @@ const PRODUCTS_TO_PROMOTE = [
   { name: 'Platinum Membership',     price: 299, commission: 50, emoji: '💎', convRate: '2.4%' },
 ];
 
+function toSlug(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 export default function AffiliatePage() {
   const [copied, setCopied] = useState('');
+  const [affCode] = useState(() => 'AFF-' + Math.random().toString(36).slice(2, 8).toUpperCase());
 
-  const copyLink = (id: string) => {
-    navigator.clipboard.writeText(`https://vaultflow.io/ref/${id}`);
-    setCopied(id);
+  const copyLink = (name: string) => {
+    const slug = toSlug(name);
+    navigator.clipboard.writeText(`https://vaultflow.io/ref/${affCode}/${slug}`);
+    setCopied(name);
     setTimeout(() => setCopied(''), 2000);
   };
 
@@ -43,6 +49,10 @@ export default function AffiliatePage() {
           <p className="text-white/50 text-xl max-w-2xl mx-auto">
             Earn 30–50% on every sale you refer. One link. Lifetime commissions. Daily payouts.
           </p>
+          <div className="mt-6 inline-flex items-center gap-3 glass rounded-xl px-5 py-3 border border-green-500/20">
+            <span className="text-xs text-white/40 uppercase tracking-widest">Your Affiliate Code</span>
+            <span className="font-black text-green-400 text-lg">{affCode}</span>
+          </div>
         </div>
 
         {/* Key metrics */}
